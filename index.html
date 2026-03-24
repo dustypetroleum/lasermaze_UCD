@@ -1,92 +1,115 @@
-body {
-    background-color: #0b0b0b;
-    color: #00ff41; /* Laser Green */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-.red-text { color: #ff003c; } /* Laser Red */
-.green-border { border: 1px solid #00ff41; }
-.red-border { border: 2px solid #ff003c; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Maze | UC Davis Picnic Day</title>
+    <style>
+        /* CSS: The Visual Layer */
+        body {
+            background-color: #0b0b0b;
+            color: #00ff41; /* Laser Green */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .red-text { color: #ff003c; } /* Laser Red */
+        .green-border { border: 1px solid #00ff41; }
+        .red-border { border: 2px solid #ff003c; }
+        header {
+            background: linear-gradient(180deg, #000, #111);
+            padding: 40px 20px;
+            border-bottom: 3px solid #00ff41;
+        }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        .card {
+            background: #1a1a1a;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+        }
+        .map-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            margin-top: 15px;
+            border: 1px dashed #555;
+        }
+        .btn-vip {
+            background: #ff003c;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
 
-header {
-    background: linear-gradient(180deg, #000, #111);
-    padding: 40px 20px;
-    border-bottom: 3px solid #00ff41;
-}
-.container { max-width: 800px; margin: auto; padding: 20px; }
-.card {
-    background: #1a1a1a;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 8px;
-}
-.map-placeholder {
-    width: 100%;
-    height: 300px;
-    background: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    margin-top: 10px;
-}
-.btn-vip {
-    background: #ff003c;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: inline-block;
-    font-weight: bold;
-    margin-top: 10px;
-}
-<header>
-    <h1>UC Davis Laser Maze 2026</h1>
-    <p>Presented by the <strong>Optics Club of Biomedical Engineering</strong></p>
-    <p>College of Engineering</p>
-</header>
+    <header>
+        <h1>UC Davis Laser Maze 2026</h1>
+        <p>Optics Club of Biomedical Engineering | College of Engineering</p>
+    </header>
 
-<div class="container">
-    <section class="card green-border">
-        <h2>Event Logistics</h2>
-        <p><strong>Location:</strong> Kemper Hall 1003</p>
-        <p><strong>General Hours:</strong> 10:00 AM – 2:00 PM</p>
-        <p class="red-text"><strong>VIP Hour:</strong> 2:00 PM – 3:00 PM</p>
-    </section>
+    <div class="container">
+        <section class="card green-border">
+            <h2>Event Logistics</h2>
+            <p><strong>Location:</strong> Kemper Hall 1003</p>
+            <p><strong>Hours:</strong> 10:00 AM – 2:00 PM</p>
+            <p class="red-text"><strong>VIP Hour:</strong> 2:00 PM – 3:00 PM</p>
+        </section>
 
-    <section class="card red-border">
-        <h2>Ticketing & Admission</h2>
-        <p>Tickets are required to reduce wait times and will be available starting at <strong>9:00 AM</strong>.</p>
-        <ul>
-            <li>Tickets provide a specific lineup time.</li>
-            <li>Do not join the line prior to your assigned time.</li>
-            <li>The line closes 30–60 minutes before the event ends.</li>
-        </ul>
-        <a href="#" class="btn-vip">Purchase VIP Tickets & Merch</a>
-    </section>
+        <section class="card red-border">
+            <h2>Ticketing & Admission</h2>
+            <p>Tickets are available starting at <strong>9:00 AM</strong>. To manage the 900+ attendees we expect, please follow these rules:</p>
+            <ul>
+                <li>Tickets provide a recommended lineup time.</li>
+                <li><strong>Do not join the line</strong> prior to your ticket time.</li>
+                <li>The line closes 30–60 minutes before the event ends.</li>
+            </ul>
+            <a href="#" class="btn-vip">VIP Tickets & Donations</a>
+        </section>
 
-    <section class="card">
-        <h2>The Experience</h2>
-        <p>Small groups of 5–6 navigate a 15-meter pathway of lasers and photodetectors. Move through the maze without tripping the alarm.</p>
-        <p class="red-text"><strong>Safety Note:</strong> The room is dark and filled with fog. Participation is not recommended for those sensitive to these environments.</p>
-    </section>
+        <section class="card">
+            <h2>The Experience</h2>
+            <p>Navigate a 15-meter pathway of lasers and photodetectors in groups of 5–6. Your goal: reach the exit without tripping the alarm.</p>
+            <p class="red-text"><strong>Warning:</strong> The room is dark and filled with fog. Not recommended for those sensitive to these environments.</p>
+        </section>
 
-    <section class="card green-border">
-        <h2>How to Find Us</h2>
-        <p>The line forms outside the west entrance of Kemper Hall. Follow the green floor markers.</p>
-        <div class="map-placeholder">
-            [Insert Image of Kemper Hall 1003 & Line Location Here]
-        </div>
-    </section>
+        <section class="card green-border">
+            <h2>Finding the Maze</h2>
+            <p>Follow the signs to Kemper Hall 1003. The line forms at the west entrance.</p>
+            <div class="map-placeholder">
+                [Map of Kemper Hall 1003 and Queue Area]
+            </div>
+        </section>
 
-    <section class="card">
-        <h2>Rules of the Maze</h2>
-        <ul style="text-align: left;">
-            <li>No flash photography.</li>
-            <li>Keep moving; no sudden jumps or stops.</li>
-            <li>Maintain 6 inches from boundaries to protect equipment.</li>
-            <li>Exit immediately after completion to the merch booth.</li>
-        </ul>
-    </section>
-</div>
+        <section class="card">
+            <h2>Rules & Safety</h2>
+            <ul>
+                <li>No flash photography.</li>
+                <li>Keep moving; no sudden jumps or stops.</li>
+                <li>Stay 6 inches from boundaries to avoid bumping equipment.</li>
+                <li>Exit immediately after completion to the merch booth inside.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer style="padding: 40px; color: #555;">
+        <p>&copy; 2026 Optics Club at UC Davis</p>
+    </footer>
+
+</body>
+</html>
