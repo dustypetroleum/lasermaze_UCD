@@ -5,53 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laser Maze | UC Davis Picnic Day</title>
     <style>
-        /* CSS: The Visual Layer */
-        body {
-            background-color: #0b0b0b;
-            color: #00ff41; /* Laser Green */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .red-text { color: #ff003c; } /* Laser Red */
-        .green-border { border: 1px solid #00ff41; }
-        .red-border { border: 2px solid #ff003c; }
-        header {
-            background: linear-gradient(180deg, #000, #111);
-            padding: 40px 20px;
-            border-bottom: 3px solid #00ff41;
-        }
+        :root { --laser-green: #00ff41; --laser-red: #ff003c; --bg-dark: #0b0b0b; }
+        body { background-color: var(--bg-dark); color: var(--laser-green); font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; text-align: center; }
+        .red-text { color: var(--laser-red); }
+        .green-border { border: 1px solid var(--laser-green); }
+        .red-border { border: 2px solid var(--laser-red); }
+        header { background: #000; padding: 40px 20px; border-bottom: 3px solid var(--laser-green); }
         .container { max-width: 800px; margin: auto; padding: 20px; }
-        .card {
-            background: #1a1a1a;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: left;
-        }
-        .map-placeholder {
-            width: 100%;
-            height: 250px;
-            background: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            margin-top: 15px;
-            border: 1px dashed #555;
-        }
-        .btn-vip {
-            background: #ff003c;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
+        .card { background: #1a1a1a; margin: 20px 0; padding: 20px; border-radius: 8px; text-align: left; }
+        .wait-time-box { font-size: 1.5rem; font-weight: bold; text-align: center; border: 2px dashed var(--laser-green); padding: 10px; margin-bottom: 20px; }
+        .btn-vip { background: var(--laser-red); color: white; padding: 12px 24px; text-decoration: none; display: inline-block; font-weight: bold; border-radius: 4px; margin-top: 10px; }
+        img { width: 100%; height: auto; border: 1px solid var(--laser-green); margin-top: 15px; }
         ul { padding-left: 20px; }
         li { margin-bottom: 10px; }
     </style>
@@ -62,54 +26,82 @@
         <h1>UC Davis Laser Maze 2026</h1>
         <p>Optics Club of Biomedical Engineering | College of Engineering</p>
     </header>
-
+<div class="wait-time-box">
+    Current Wait: <span id="wait-display">Calculating...</span>
+    <div style="font-size: 0.8rem; color: #888;" id="timestamp-display">Updating...</div>
+</div>
     <div class="container">
+        <!-- Dynamic Section for Quick Edits -->
+        <div class="wait-time-box" id="current-status">
+            Current Wait: <span id="wait-display">15 Minutes</span>
+        </div>
+
         <section class="card green-border">
             <h2>Event Logistics</h2>
             <p><strong>Location:</strong> Kemper Hall 1003</p>
-            <p><strong>Hours:</strong> 10:00 AM – 2:00 PM</p>
-            <p class="red-text"><strong>VIP Hour:</strong> 2:00 PM – 3:00 PM</p>
+            <p><strong>General Hours:</strong> 10:00 AM – 2:00 PM</p>
+            <p class="red-text"><strong>VIP Hours:</strong> 2:00 PM – 3:00 PM</p>
+            <p><em>Small groups of 5–6 will navigate a 15-meter pathway equipped with lasers and photodetectors. Move through the maze without tripping the alarm.</em></p>
         </section>
 
         <section class="card red-border">
-            <h2>Ticketing & Admission</h2>
-            <p>Tickets are available starting at <strong>9:00 AM</strong>. To manage the 900+ attendees we expect, please follow these rules:</p>
+            <h2>Tickets & Admission</h2>
+            <p>To accommodate the 900+ attendees expected, general tickets will be issued to reduce wait times.</p>
             <ul>
-                <li>Tickets provide a recommended lineup time.</li>
-                <li><strong>Do not join the line</strong> prior to your ticket time.</li>
-                <li>The line closes 30–60 minutes before the event ends.</li>
+                <li>Tickets available starting at <strong>9:00 AM</strong>.</li>
+                <li>Your ticket provides a recommended lineup time. <strong>Do not join the line prior to your time.</strong></li>
+                <li>Line closes 30–60 minutes prior to event end.</li>
+                <li>VIP tickets available for purchase for the 2:00 PM–3:00 PM session.</li>
             </ul>
-            <a href="#" class="btn-vip">VIP Tickets & Donations</a>
+            <a href="#" class="btn-vip">Tickets, Merch & Donations</a>
         </section>
 
         <section class="card">
-            <h2>The Experience</h2>
-            <p>Navigate a 15-meter pathway of lasers and photodetectors in groups of 5–6. Your goal: reach the exit without tripping the alarm.</p>
-            <p class="red-text"><strong>Warning:</strong> The room is dark and filled with fog. Not recommended for those sensitive to these environments.</p>
+            <h2>Safety & Rules</h2>
+            <p class="red-text"><strong>Environment:</strong> The room is dark and filled with fog. Not recommended for those sensitive to these conditions.</p>
+            <ul>
+                <li>No flash photography.</li>
+                <li>Keep moving; no sudden movements or jumps.</li>
+                <li>Keep 6 inches from boundaries to protect equipment.</li>
+                <li>Exit immediately to the merch booth inside upon completion.</li>
+            </ul>
         </section>
 
         <section class="card green-border">
-            <h2>Finding the Maze</h2>
-            <p>Follow the signs to Kemper Hall 1003. The line forms at the west entrance.</p>
-            <div class="map-placeholder">
-                [Map of Kemper Hall 1003 and Queue Area]
-            </div>
-        </section>
-
-        <section class="card">
-            <h2>Rules & Safety</h2>
-            <ul>
-                <li>No flash photography.</li>
-                <li>Keep moving; no sudden jumps or stops.</li>
-                <li>Stay 6 inches from boundaries to avoid bumping equipment.</li>
-                <li>Exit immediately after completion to the merch booth inside.</li>
-            </ul>
+            <h2>Finding the Entrance</h2>
+            <p>The line forms at the west entrance of Kemper Hall. Follow the floor markers to Room 1003.</p>
+            <img src="assets/map.jpg" alt="Map to Kemper 1003">
         </section>
     </div>
 
-    <footer style="padding: 40px; color: #555;">
-        <p>&copy; 2026 Optics Club at UC Davis</p>
+    <footer style="padding: 40px; color: #444;">
+        <p>Donations and gifts support the Optics Club, BME Dept, and College of Engineering.</p>
     </footer>
+<script>
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSay0B-QBdAWttYgeaAdt8B3GQf34SKFiWfXnqJM1JxyHRWFpuZHxJC9-dnSJYKpwKqahyDfXikTX_K/pub?gid=1572122187&single=true&output=csv';
 
+async function updateStatus() {
+        try {
+            const response = await fetch(CSV_URL);
+            const csvText = await response.text();
+            const rows = csvText.split('\n');
+            
+            // rows[1] contains the latest data: [Timestamp, Groups, Flow, WaitTime]
+            const latestData = rows[1].split(',');
+
+            const timestamp = latestData[0];
+            const waitTime = Math.round(latestData[3]); // Column D
+
+            document.getElementById('wait-display').innerText = waitTime + " Minutes";
+            document.getElementById('timestamp-display').innerText = "Last Updated: " + timestamp;
+        } catch (error) {
+            console.error("Fetch error:", error);
+        }
+    }
+
+    // Run on load and every 2 minutes
+    updateStatus();
+    setInterval(updateStatus, 120000);
+</script>
 </body>
 </html>
