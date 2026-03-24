@@ -26,10 +26,6 @@
         <h1>UC Davis Laser Maze 2026</h1>
         <p>Optics Club of Biomedical Engineering | College of Engineering</p>
     </header>
-<div class="wait-time-box">
-    Current Wait: <span id="wait-display">Calculating...</span>
-    <div style="font-size: 0.8rem; color: #888;" id="timestamp-display">Updating...</div>
-</div>
     <div class="container">
         <!-- Dynamic Section for Quick Edits -->
         <div class="wait-time-box" id="current-status">
@@ -79,29 +75,34 @@
     </footer>
 <script>
     const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSay0B-QBdAWttYgeaAdt8B3GQf34SKFiWfXnqJM1JxyHRWFpuZHxJC9-dnSJYKpwKqahyDfXikTX_K/pub?gid=1572122187&single=true&output=csv';
-
 async function updateStatus() {
         try {
             const response = await fetch(CSV_URL);
             const csvText = await response.text();
             const rows = csvText.split('\n');
             
-            // rows[1] contains the latest data: [Timestamp, Groups, Flow, WaitTime]
+            // row[1] contains: Timestamp, Groups, Flow, WaitTime
             const latestData = rows[1].split(',');
 
-            const timestamp = latestData[0];
-            const waitTime = Math.round(latestData[3]); // Column D
+            const rawTimestamp = latestData[0]; // e.g., "3/24/2026 11:24:53"
+            const waitTime = Math.round(latestData[3]);
+
+            // Format timestamp to show only the time
+            const dateObj = new Date(rawTimestamp);
+            const timeOnly = dateObj.toLocaleTimeString([], { 
+                hour: 'numeric', 
+                minute: '2-digit' 
+            });
 
             document.getElementById('wait-display').innerText = waitTime + " Minutes";
-            document.getElementById('timestamp-display').innerText = "Last Updated: " + timestamp;
+            document.getElementById('timestamp-display').innerText = "Last Updated: " + timeOnly;
         } catch (error) {
-            console.error("Fetch error:", error);
+            console.error("Status update failed:", error);
         }
     }
 
-    // Run on load and every 2 minutes
     updateStatus();
-    setInterval(updateStatus, 120000);
+    setInterval(updateStatus, 120000); // Check every 2 minutes
 </script>
 </body>
 </html>
